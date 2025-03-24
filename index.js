@@ -1,5 +1,7 @@
 const path = require("path");
 const express = require("express");
+const exphbs = require('express-handlebars');
+
 const router = require("./routes");
 
 const app = express();
@@ -18,8 +20,13 @@ app.use(
 
 app.use(router);
 
-router.get("/", (req, res) => {
-  res.sendFile(`${basePath}/index.html`)
+app.engine("handlebars", exphbs.engine());
+app.set("view engine", "handlebars");
+
+app.get("/", (req, res) => {
+  // res.sendFile(`${basePath}/index.html`)
+  res.render('home');
+  // res.render('./views/layouts/main.handlebars', { layout: false });
 });
 
 app.use((req, res, next) => {
