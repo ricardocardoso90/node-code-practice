@@ -2,4 +2,10 @@ body {
   padding: 2rem;
   text-align: center;
   background-color: #DDD;
+
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  color: red;
 }
