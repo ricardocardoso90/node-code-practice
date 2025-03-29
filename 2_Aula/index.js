@@ -38,9 +38,11 @@ app.get("/books", (req, res) => {
   conn.query(querySqlReq, (error, data) => {
 
     error && console.log(error);
-    console.log(data);
+    const books = data;
 
-    res.render("books", { data });
+    console.log(books);
+
+    res.render("books", { books });
   });
 });
 
