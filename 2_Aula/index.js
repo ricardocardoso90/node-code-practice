@@ -46,6 +46,20 @@ app.get("/books", (req, res) => {
   });
 });
 
+app.get("/books/:id", (req, res) => {
+  const id = req.params.id;
+  const querySqlId = `SELECT * FROM books WHERE id=${id}`;
+
+  conn.query(querySqlId, (error, data) => {
+    error && console.log(error);
+    const book = data[0];
+
+    console.log(book);
+
+    res.render("book", { book });
+  });
+});
+
 const conn = mysql.createConnection({
   host: 'localhost',
   port: 3306,

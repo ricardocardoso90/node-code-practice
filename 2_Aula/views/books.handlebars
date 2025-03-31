@@ -5,7 +5,8 @@
 
   {{#each books}}
   <div>
-    #{{this.id}} - <span style="font-weight: bold;">{{this.title}}</span> - {{this.pageqty}} páginas.
+    #{{this.id}} - <span style="font-weight: bold;"><a href="/books/{{this.id}}">{{this.title}}</a></span> -
+    {{this.pageqty}} páginas.
   </div>
   {{/each}}
 </div>
