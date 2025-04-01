@@ -69,7 +69,6 @@ app.get("/books/edit/:id", (req, res) => {
     const book = data[0];
 
     console.log(book);
-
     res.render("editbook", { book });
   });
 });
