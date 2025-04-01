@@ -3,6 +3,12 @@
 
   <div class="container">
     <h1 style="margin-bottom: 20px;">{{book.title}}</h1>
-    <h2>ID: {{book.id}} - Esse livro tem {{book.h2ageqty}} páginas.</h2>
+    <h2>ID: {{book.id}} - Esse livro tem {{book.pageqty}} páginas.</h2>
+    <div class="actions">
+      <a href="/books/edit/{{book.id}}">Editar</a>
+      <form action="/books/remove/{{book.id}}" method="POST">
+        <input type="submit" value="Remover">
+      </form>
+    </div>
   </div>
 </div>
