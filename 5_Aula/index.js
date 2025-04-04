@@ -5,6 +5,7 @@ const conn = require('./db/conn');
 const exphbs = require('express-handlebars');
 
 const User = require('./models/User');
+const { raw } = require('mysql');
 
 app.use(
   express.urlencoded({
@@ -19,8 +20,11 @@ app.engine("handlebars", exphbs.engine());
 
 app.use(express.static("./public"));
 
-app.get("/", (req, res) => {
-  res.render("home");
+app.get("/", async (req, res) => {
+  const users = await User.findAll({ raw: true });
+  console.log(users);
+
+  res.render("home", { users: users });
 });
 
 app.get("/users/create", (req, res) => {
@@ -40,6 +44,20 @@ app.post("/users/create", async (req, res) => {
   await User.create({ name, occupation, newsletter });
 
   res.redirect('/');
+});
+
+app.post("/users/delete", async (req, res) => {
+  const id = id.params.id;
+  
+
+  res.redirect("/");
+});
+
+app.get("/users/:id", async (req, res) => {
+  const id = req.params.id;
+  const user = await User.findOne({ raw: true, where: { id: id } });
+
+  res.render("userview", { user: user });
 });
 
 conn.sync()
