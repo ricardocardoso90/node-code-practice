@@ -87,6 +87,30 @@ form {
 
     & .actions {
       display: flex;
+      justify-content: space-between;
+      background-color: #721C24;
+
+      & a,
+      input {
+        padding: 5px;
+        color: #000;
+        font-size: 15px;
+        cursor: pointer;
+        border-radius: 5px;
+        text-decoration: none;
+        background-color: #FFF;
+        border: 1px solid #BBB;
+      }
+
+      & .details-btn {
+        color: #004085;
+        border-color: #004085;
+      }
+
+      & .delete-btn {
+        color: #721C24;
+        border-color: #721C24;
+      }
     }
   }
 }

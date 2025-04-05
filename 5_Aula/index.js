@@ -46,9 +46,9 @@ app.post("/users/create", async (req, res) => {
   res.redirect('/');
 });
 
-app.post("/users/delete", async (req, res) => {
-  const id = id.params.id;
-  
+app.post("/users/delete/:id", async (req, res) => {
+  const id = req.params.id;
+  await User.destroy({ where: { id: id } });
 
   res.redirect("/");
 });
