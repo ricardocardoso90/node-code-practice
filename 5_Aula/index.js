@@ -60,6 +60,13 @@ app.get("/users/:id", async (req, res) => {
   res.render("userview", { user: user });
 });
 
+app.get("/users/edit/:id", async (req, res) => {
+  const id = req.params.id;
+  const user = await User.findOne({ raw: true, where: { id: id } })
+
+  res.render("useredit", { user: user });
+});
+
 conn.sync()
   .then(() => app.listen(3000))
   .catch((error) => console.log(error));

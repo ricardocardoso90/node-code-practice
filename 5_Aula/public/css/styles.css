@@ -88,7 +88,6 @@ form {
     & .actions {
       display: flex;
       justify-content: space-between;
-      background-color: #721C24;
 
       & a,
       input {
