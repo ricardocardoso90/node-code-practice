@@ -5,7 +5,7 @@ const conn = require('./db/conn');
 const exphbs = require('express-handlebars');
 
 const User = require('./models/User');
-const { raw } = require('mysql');
+// const { raw } = require('mysql');
 
 app.use(
   express.urlencoded({
@@ -22,7 +22,7 @@ app.use(express.static("./public"));
 
 app.get("/", async (req, res) => {
   const users = await User.findAll({ raw: true });
-  console.log(users);
+  // console.log(users);
 
   res.render("home", { users: users });
 });
@@ -40,7 +40,7 @@ app.post("/users/create", async (req, res) => {
     ? newsletter = true
     : newsletter = false;
 
-  console.log(req.body);
+  // console.log(req.body);
   await User.create({ name, occupation, newsletter });
 
   res.redirect('/');
@@ -67,6 +67,24 @@ app.get("/users/edit/:id", async (req, res) => {
   res.render("useredit", { user: user });
 });
 
-conn.sync()
+app.post("/users/update", async (req, res) => {
+  const id = req.body.id;
+  const name = req.body.name;
+  const occupation = req.body.occupation;
+  let newsletter = req.body.newsletter;
+
+  newsletter === 'on'
+    ? newsletter = true
+    : newsletter = false;
+
+  // const userData = { id, name, occupation, newsletter };
+  await User.update(id, name, occupation, newsletter, { where: { id: id } });
+
+  res.redirect("/");
+});
+
+conn
+  .sync()
+  // .sync({ force: true })
   .then(() => app.listen(3000))
   .catch((error) => console.log(error));
