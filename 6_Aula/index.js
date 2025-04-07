@@ -84,6 +84,18 @@ app.post("/users/update", async (req, res) => {
   res.redirect("/");
 });
 
+app.post("/address/create", async (req, res) => {
+  const UserId = req.body.UserId;
+  const street = req.body.street;
+  const number = req.body.number;
+  const city = req.body.city;
+
+  // const addressData = {UserId, street, number, city};
+  await Address.create({ UserId, street, number, city });
+
+  res.redirect(`/users/edit/${UserId}`);
+});
+
 conn
   .sync()
   // .sync({ force: true })

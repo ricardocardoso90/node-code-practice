@@ -113,3 +113,10 @@ form {
     }
   }
 }
+
+/* ADDRESS */
+.address-container {
+  margin: 1em auto;
+  padding-top: 1em;
+  max-width: 1000px;
+}
