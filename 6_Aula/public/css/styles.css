@@ -119,4 +119,10 @@ form {
   margin: 1em auto;
   padding-top: 1em;
   max-width: 1000px;
+
+  & .address-list {
+    margin-top: 1em;
+    padding-top: 1em;
+    border-top: 1px solid #000;
+  }
 }
