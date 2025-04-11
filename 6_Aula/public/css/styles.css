@@ -124,5 +124,17 @@ form {
     margin-top: 1em;
     padding-top: 1em;
     border-top: 1px solid #000;
+
+    & div {
+      display: flex;
+      margin-top: 1em;
+      margin-bottom: 1em;
+      padding-bottom: 1em;
+      border-bottom: 1px solid #000;
+    }
+
+    & form {
+      margin-left: 1em;
+    }
   }
 }

@@ -43,7 +43,6 @@ app.post("/users/create", async (req, res) => {
 
   // console.log(req.body);
   await User.create({ name, occupation, newsletter });
-
   res.redirect('/');
 });
 
@@ -97,6 +96,14 @@ app.post("/address/create", async (req, res) => {
   // const addressData = {UserId, street, number, city};
   await Address.create({ UserId, street, number, city });
 
+  res.redirect(`/users/edit/${UserId}`);
+});
+
+app.post("/address/delete", async (req, res) => {
+  const id = req.body.id;
+  const UserId = req.body.UserId;
+
+  await Address.destroy({ where: { id: id } });
   res.redirect(`/users/edit/${UserId}`);
 });
 
