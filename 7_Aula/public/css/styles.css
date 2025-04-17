@@ -77,3 +77,43 @@ h1 {
     }
   }
 }
+
+.task-list {
+  list-style: none;
+  margin-top: 1em;
+
+  & li {
+    padding: .5em;
+    margin-bottom: 1em;
+    border-bottom: 1px solid #000;
+
+    display: flex;
+    justify-content: space-between;
+  }
+
+  & .title {
+    color: #DB4C3F;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: all ease .5s;
+  }
+
+  & .title:hover {
+    color: #333;
+  }
+
+  .actions {
+    display: flex;
+
+    i {
+      color: #333;
+      font-size: 1.5em;
+      margin-right: .6em;
+      transition: all ease .5s;
+    }
+
+    i:hover {
+      color: #DB4C3F;
+    }
+  }
+}

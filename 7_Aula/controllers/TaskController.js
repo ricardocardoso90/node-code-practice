@@ -1,8 +1,9 @@
 const Task = require('../models/Task');
 
 class TaskController {
-  static showTask(req, res) {
-    res.render('tasks/all');
+  static async showTask(req, res) {
+    const tasks = await Task.findAll({ raw: true });
+    res.render('tasks/all', { tasks });
   };
 
   static createTask(req, res) {
