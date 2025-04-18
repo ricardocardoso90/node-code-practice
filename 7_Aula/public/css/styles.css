@@ -79,8 +79,9 @@ h1 {
 }
 
 .task-list {
-  list-style: none;
+  max-width: 450px;
   margin-top: 1em;
+  margin: 2em auto;
 
   & li {
     padding: .5em;
@@ -88,6 +89,7 @@ h1 {
     border-bottom: 1px solid #000;
 
     display: flex;
+    list-style: none;
     justify-content: space-between;
   }
 
@@ -95,6 +97,7 @@ h1 {
     color: #DB4C3F;
     font-size: 1.2em;
     font-weight: bold;
+    text-decoration: none;
     transition: all ease .5s;
   }
 
@@ -104,6 +107,7 @@ h1 {
 
   .actions {
     display: flex;
+    align-items: center;
 
     i {
       color: #333;
@@ -115,5 +119,19 @@ h1 {
     i:hover {
       color: #DB4C3F;
     }
+
+    form {
+      margin: 0;
+    }
+
+    button {
+      border: none;
+      background-color: transparent;
+    }
+  }
+
+  & .done {
+    color: #333;
+    text-decoration: line-through;
   }
 }
