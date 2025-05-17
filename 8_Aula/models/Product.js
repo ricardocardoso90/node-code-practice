@@ -24,20 +24,21 @@ class Product {
 
   //METODO PARA RECUPERAR TODOS OS DADOS.
   static getProducts() {
-    const product = conn
-      .db()
-      .collection('products')
-      .find({}).toArray();
+    const product = conn.db().collection('products').find({}).toArray();
 
     return product;
   };
 
   //METODO PARA RECUPERAR APENAS UM DADO.
   static async getProductById(id) {
-    const product = await conn
-      .db()
-      .collection('products')
-      .findOne({ _id: new ObjectId(id) });
+    const product = await conn.db().collection('products').findOne({ _id: new ObjectId(id) });
+
+    return product;
+  };
+
+  //METODO PARA DELETAR UM DADO.
+  static async deleteProduct(id) {
+    const product = await conn.db().collection('products').deleteOne({ _id: new ObjectId(id) });
 
     return product;
   };
