@@ -100,3 +100,15 @@ h1 {
     }
   }
 }
+
+.product-page {
+
+  & img {
+    max-width: 250px;
+    margin-bottom: 1em;
+  }
+
+  & p {
+    margin-bottom: 1em;
+  }
+}
