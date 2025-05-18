@@ -42,6 +42,12 @@ class Product {
 
     return product;
   };
+
+  //METODO PARA ATUALIZAR OS DADOS.
+  updateProduct(id) {
+    conn.db().collection('products').updateOne({ _id: new ObjectId(id) }, { $set: this });
+    return;
+  };
 };
 
 module.exports = Product;
