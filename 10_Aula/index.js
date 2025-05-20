@@ -10,8 +10,15 @@ app.use(
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.send("Olá Mundão!!");
-  // res.json({ message: "Primeira rota criada com sucesso!!" })
+  res.send("Teste de API!!");
+});
+
+app.post('/createproduct', (req, res) => {
+  const name = req.body.name;
+  const price = req.body.price;
+
+  console.log(`Nome: ${name}, preço: ${price}`);
+  res.json({ message: "Dados enviados com sucesso!!" });
 });
 
 app.listen(3000, () => console.log("Servidor rodando com sucesso!!"));
